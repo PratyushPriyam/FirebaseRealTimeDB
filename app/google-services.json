@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1070732682770",
+    "firebase_url": "https://realtimefirebasedb-10f40-default-rtdb.firebaseio.com",
+    "project_id": "realtimefirebasedb-10f40",
+    "storage_bucket": "realtimefirebasedb-10f40.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070732682770:android:ada0d8ccb4b32e7ac11acb",
+        "android_client_info": {
+          "package_name": "com.assignment.firebaserealtimedb"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqCwRQowUYavz9tnYwSM1DyYfPwmX2kfg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
