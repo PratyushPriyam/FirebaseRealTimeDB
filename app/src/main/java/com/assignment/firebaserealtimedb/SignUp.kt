@@ -27,6 +27,7 @@ class SignUp : AppCompatActivity() {
         signupBtn.setOnClickListener { 
             auth.createUserWithEmailAndPassword(emailEdt.text.toString(), passEdt.text.toString()).addOnSuccessListener {
                 Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, LogIn::class.java))
             }.addOnFailureListener {
                 Toast.makeText(this, "Failure", Toast.LENGTH_SHORT).show()
             }

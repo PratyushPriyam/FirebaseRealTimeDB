@@ -31,6 +31,7 @@ class LogIn : AppCompatActivity() {
         logInBtn.setOnClickListener { 
             auth.signInWithEmailAndPassword(emailEdt.text.toString(), passEdt.text.toString()).addOnSuccessListener {
                 Toast.makeText(this, "Logging In", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, MainActivity::class.java))
             }
                 .addOnFailureListener {
                     Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
