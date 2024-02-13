@@ -17,29 +17,24 @@ class LogIn : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in)
+        
+        auth = FirebaseAuth.getInstance()
 
         emailEdt = findViewById(R.id.editTextText)
         passEdt = findViewById(R.id.editTextText3)
-        logInBtn = findViewById(R.id.button)
         signUpBtn = findViewById(R.id.button2)
-        auth = FirebaseAuth.getInstance()
-
-        signUpBtn.setOnClickListener {
+        signUpBtn.setOnClickListener { 
             startActivity(Intent(this, SignUp::class.java))
         }
-
-        logInBtn.setOnClickListener {
-            if (emailEdt.text == null || passEdt.text == null) {
-                Toast.makeText(this, "Email or password cannot be null", Toast.LENGTH_SHORT).show()
+        
+        logInBtn = findViewById(R.id.button)
+        logInBtn.setOnClickListener { 
+            auth.signInWithEmailAndPassword(emailEdt.text.toString(), passEdt.text.toString()).addOnSuccessListener {
+                Toast.makeText(this, "Logging In", Toast.LENGTH_SHORT).show()
             }
-            else {
-                auth.signInWithEmailAndPassword(emailEdt.text.toString(), passEdt.text.toString()).addOnSuccessListener {
-                    Toast.makeText(this, "user with email: ${emailEdt.text.toString()} logged in", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this, MainActivity::class.java))
-                }.addOnFailureListener{
-                    Toast.makeText(this, "${it}", Toast.LENGTH_SHORT).show()
+                .addOnFailureListener {
+                    Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
                 }
-            }
         }
     }
 }
